@@ -8,6 +8,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
 		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/mouse/main.css' %}" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
 	</head>
@@ -16,7 +17,8 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Turanga</a></h1>
+{#					<h1 id="logo"><a href="index.html">Turanga</a></h1>#}
+                    <h1 id="logo">Turanga</h1>
 					<nav id="nav">
 						<ul>
 							<li><a href="#">Home</a></li>
@@ -28,7 +30,7 @@
 				</header>
 
 			<!-- Banner -->
-				<section id="banner">
+				<section id="banner" data-section-name="a">
 					<div class="content">
 						<header>
 							<h2>TURANGA</h2>
@@ -41,7 +43,7 @@
 				</section>
 
 			<!-- One -->
-				<section id="one" class="spotlight style1 bottom">
+				<section id="one" class="spotlight style1 bottom" data-section-name="b">
 					<span class="image fit main"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ewba81og6mj31bm0v9gsr.jpg" alt="" /></span>
 					<div class="content">
 						<div class="container">
@@ -66,7 +68,7 @@
 				</section>
 
             <!-- Two -->
-				<section id="two" class="spotlight style3 left">
+				<section id="two" class="spotlight style3 left" data-section-name="c">
 					<span class="image fit main bottom"><img src="http://ww4.sinaimg.cn/large/006bwLnEgw1ewba80ybimj33pi2fm1kx.jpg" alt="" /></span>
 					<div class="content">
 						<header>
@@ -82,7 +84,7 @@
 				</section>
 
 			<!-- Three -->
-				<section id="three" class="spotlight style2 right">
+				<section id="three" class="spotlight style2 right" data-section-name="d">
 					<span class="image fit main"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ewba81og6mj31bm0v9gsr.jpg" alt="" /></span>
 					<div class="content">
 						<header>
@@ -99,56 +101,49 @@
 
 
 			<!-- Four -->
-				<section id="four" class="wrapper style1 special fade-up">
-					<div class="container">
-						<header class="major">
-							<h2>Accumsan sed tempus adipiscing blandit</h2>
-							<p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
-						</header>
-						<div class="box alt">
-							<div class="row uniform">
-								<section class="4u 6u(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-area-chart"></span>
-									<h3>Ipsum sed commodo</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u 6u$(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-comment"></span>
-									<h3>Eleifend lorem ornare</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u$ 6u(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-flask"></span>
-									<h3>Cubilia cep lobortis</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u 6u$(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-paper-plane"></span>
-									<h3>Non semper interdum</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u 6u(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-file"></span>
-									<h3>Odio laoreet accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u$ 6u$(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-lock"></span>
-									<h3>Massa arcu accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-							</div>
-						</div>
-{#						<footer class="major">#}
-{#							<ul class="actions">#}
-{#								<li><a href="#" class="button">Magna sed feugiat</a></li>#}
-{#							</ul>#}
-{#						</footer>#}
-					</div>
+				<section id="four" class="wrapper style1 special fade-up" data-section-name="e">
+                    <div class="container">
+                        <header class="major">
+                            <h2 id="four-title">Accumsan sed tempus adipiscing blandit</h2>
+                        </header>
+                        <div class="box alt">
+                            <div class="row uniform">
+                                <section class="4u 6u(medium) 12u$(xsmall)">
+                                    <span class="icon alt major fa-area-chart"></span>
+                                    <h3>Ipsum sed commodo</h3>
+                                </section>
+                                <section class="4u 6u$(medium) 12u$(xsmall)">
+                                    <span class="icon alt major fa-comment"></span>
+                                    <h3>Eleifend lorem ornare</h3>
+                                </section>
+                                <section class="4u$ 6u(medium) 12u$(xsmall)">
+                                    <span class="icon alt major fa-flask"></span>
+                                    <h3>Cubilia cep lobortis</h3>
+                                </section>
+                                <section class="4u 6u$(medium) 12u$(xsmall)">
+                                    <span class="icon alt major fa-paper-plane"></span>
+                                    <h3>Non semper interdum</h3>
+                                </section>
+                                <section class="4u 6u(medium) 12u$(xsmall)">
+                                    <span class="icon alt major fa-file"></span>
+                                    <h3>Odio laoreet accumsan</h3>
+                                </section>
+                                <section class="4u$ 6u$(medium) 12u$(xsmall)">
+                                    <span class="icon alt major fa-lock"></span>
+                                    <h3>Massa arcu accumsan</h3>
+                                </section>
+                            </div>
+                        </div>
+                        <footer class="major" id="four-footer">
+                            <ul class="actions">
+                                <li><a href="#five" class="button">Next</a></li>
+                            </ul>
+                        </footer>
+                    </div>
 				</section>
 
 			<!-- Five -->
-				<section id="five" class="wrapper style2 special fade">
+				<section id="five" class="wrapper style2 special" data-section-name="f" style="margin-bottom: 0 !important;">
 					<div class="container">
 						<header>
 							<h2>Magna faucibus lorem diam</h2>
@@ -163,21 +158,24 @@
 					</div>
 				</section>
 
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; DeskXD. All rights reserved.</li><li><a href="http://html5up.net">Thanks!</a></li>
-					</ul>
-				</footer>
+            <!-- Footer -->
+                <footer id="footer">
+                    <ul class="icons">
+                        <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>&copy; DeskXD. All rights reserved.</li><li><a href="http://html5up.net">Thanks!</a></li>
+                    </ul>
+                </footer>
+
 
 		</div>
 
 		<!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+{#            <script src="http://libs.baidu.com/jquery/1.7.0/jquery.min.js"></script>#}
+
 			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
@@ -185,6 +183,51 @@
 			<script src="{% static 'assets/js/util.js' %}"></script>
 			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
 			<script src="{% static 'assets/js/main.js' %}"></script>
+
+            <!-- mouse -->
+            <script src="{% static 'assets/js/mouse/jquery.easing.1.3.js' %}"></script>
+            <script src="{% static 'assets/js/mouse/main.js' %}"></script>
+            <script src="{% static 'assets/js/mouse/scrollify.min.js' %}"></script>
+            <script>
+                var system = {
+                    win: false,
+                    mac: false,
+                    xll: false,
+                    ipad:false
+                };
+                //检测平台
+                var p = navigator.platform;
+                system.win = p.indexOf("Win") == 0;
+                system.mac = p.indexOf("Mac") == 0;
+                system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+                system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false;
+                //跳转语句
+                if (system.win || system.mac || system.xll) {
+                    $(function () {
+                        var H = $(window).height();
+                        document.getElementById('four').style.height = H + 'px';
+                    });
+
+                    $(window).resize(function () {
+                        var H = $(window).height();
+                        document.getElementById('four').style.height = H + 'px';
+                    });
+                }
+
+                $(function () {
+                    $.scrollify({
+                        section : "section",
+                        sectionName : "section-name",
+                        easing: "easeOutExpo",
+                        scrollSpeed: 1100,
+                        offset : 0,
+                        scrollbars: true,
+                        before:function() {},
+                        after:function() {}
+                    });
+                });
+
+            </script>
 
 	</body>
 </html>

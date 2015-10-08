@@ -48,6 +48,13 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	#four-title{
+		margin-top: -60px !important;
+	}
+	#four-footer{
+		margin-bottom: -50px !important;
+	}
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -135,6 +142,13 @@
 			width: 90%;
 		}
 
+		#four-title{
+			margin-top: 0px !important;
+		}
+		#four-footer{
+			margin-bottom: 0px !important;
+		}
+
 	}
 
 	@media screen and (max-width: 980px) {
@@ -159,6 +173,13 @@
 
 		.container {
 			width: 100% !important;
+		}
+
+		#four-title{
+			margin-top: 0px !important;
+		}
+		#four-footer{
+			margin-bottom: 0px !important;
 		}
 
 	}
@@ -187,6 +208,13 @@
 			width: 100% !important;
 		}
 
+		#four-title{
+			margin-top: 0px !important;
+		}
+		#four-footer{
+			margin-bottom: 0px !important;
+		}
+
 	}
 
 	@media screen and (max-width: 480px) {
@@ -211,6 +239,13 @@
 
 		.container {
 			width: 100% !important;
+		}
+
+		98#four-title{
+			margin-top: 0px !important;
+		}
+		#four-footer{
+			margin-bottom: 0px !important;
 		}
 
 	}
