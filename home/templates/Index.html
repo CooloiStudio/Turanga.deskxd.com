@@ -8,17 +8,14 @@
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
 		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-        <link rel="stylesheet" href="{% static 'assets/css/mouse/main.css' %}" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
 	</head>
 	<body class="landing">
 		<div id="page-wrapper">
-
 			<!-- Header -->
 				<header id="header">
-{#					<h1 id="logo"><a href="index.html">Turanga</a></h1>#}
-                    <h1 id="logo">Turanga</h1>
+					<h1 id="logo"><a href="/">Turanga</a></h1>
 					<nav id="nav">
 						<ul>
 							<li><a href="#">Home</a></li>
@@ -30,7 +27,7 @@
 				</header>
 
 			<!-- Banner -->
-				<section id="banner" data-section-name="a">
+				<section id="banner">
 					<div class="content">
 						<header>
 							<h2>TURANGA</h2>
@@ -41,9 +38,8 @@
 					</div>
 					<a href="#one" class="goto-next scrolly">Next</a>
 				</section>
-
 			<!-- One -->
-				<section id="one" class="spotlight style1 bottom" data-section-name="b">
+				<section id="one" class="spotlight style1 bottom">
 					<span class="image fit main"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ewba81og6mj31bm0v9gsr.jpg" alt="" /></span>
 					<div class="content">
 						<div class="container">
@@ -66,9 +62,8 @@
 					</div>
 					<a href="#two" class="goto-next scrolly">Next</a>
 				</section>
-
             <!-- Two -->
-				<section id="two" class="spotlight style3 left" data-section-name="c">
+				<section id="two" class="spotlight style3 left">
 					<span class="image fit main bottom"><img src="http://ww4.sinaimg.cn/large/006bwLnEgw1ewba80ybimj33pi2fm1kx.jpg" alt="" /></span>
 					<div class="content">
 						<header>
@@ -82,9 +77,8 @@
 					</div>
 					<a href="#three" class="goto-next scrolly">Next</a>
 				</section>
-
 			<!-- Three -->
-				<section id="three" class="spotlight style2 right" data-section-name="d">
+				<section id="three" class="spotlight style2 right">
 					<span class="image fit main"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ewba81og6mj31bm0v9gsr.jpg" alt="" /></span>
 					<div class="content">
 						<header>
@@ -98,13 +92,11 @@
 					</div>
 					<a href="#four" class="goto-next scrolly">Next</a>
 				</section>
-
-
 			<!-- Four -->
-				<section id="four" class="wrapper style1 special fade-up" data-section-name="e">
+				<section id="four" class="wrapper style1 special fade-up">
                     <div class="container">
-                        <header class="major">
-                            <h2 id="four-title">Accumsan sed tempus adipiscing blandit</h2>
+                        <header class="major" id="header-title">
+                            <h2>Accumsan sed tempus adipiscing blandit</h2>
                         </header>
                         <div class="box alt">
                             <div class="row uniform">
@@ -134,48 +126,51 @@
                                 </section>
                             </div>
                         </div>
-                        <footer class="major" id="four-footer">
-                            <ul class="actions">
-                                <li><a href="#five" class="button">Next</a></li>
+{#                        <footer class="major" id="four-footer">#}
+{#                            <ul class="actions">#}
+{#                                <li><a href="#five" class="button">Next</a></li>#}
+{#                            </ul>#}
+{#                        </footer>#}
+                        <footer class="major">
+                            <ul class="copyright">
+                                <li>&copy; DeskXD. All rights reserved.</li><li><a href="http://html5up.net">Thanks!</a></li>
                             </ul>
                         </footer>
                     </div>
 				</section>
 
 			<!-- Five -->
-				<section id="five" class="wrapper style2 special" data-section-name="f" style="margin-bottom: 0 !important;">
-					<div class="container">
-						<header>
-							<h2>Magna faucibus lorem diam</h2>
-							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
-						</header>
-						<form method="post" action="#" class="container 50%">
-							<div class="row uniform 50%">
-								<div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>
-							</div>
-						</form>
-					</div>
-				</section>
+{#				<section id="five" class="wrapper style2 special">#}
+{#					<div class="container">#}
+{#						<header>#}
+{#							<h2>Magna faucibus lorem diam</h2>#}
+{#							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>#}
+{#						</header>#}
+{#						<form method="post" action="#" class="container 50%">#}
+{#							<div class="row uniform 50%">#}
+{#								<div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>#}
+{#								<div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>#}
+{#							</div>#}
+{#						</form>#}
+{#					</div>#}
+{#				</section>#}
 
             <!-- Footer -->
-                <footer id="footer">
-                    <ul class="icons">
-                        <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-                        <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-                    </ul>
-                    <ul class="copyright">
-                        <li>&copy; DeskXD. All rights reserved.</li><li><a href="http://html5up.net">Thanks!</a></li>
-                    </ul>
-                </footer>
+{#                <footer id="footer">#}
+{#                    <ul class="icons">#}
+{#                        <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>#}
+{#                        <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>#}
+{#                    </ul>#}
+{#                    <ul class="copyright">#}
+{#                        <li>&copy; DeskXD. All rights reserved.</li><li><a href="http://html5up.net">Thanks!</a></li>#}
+{#                    </ul>#}
+{#                </footer>#}
 
 
 		</div>
 
 		<!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-{#            <script src="http://libs.baidu.com/jquery/1.7.0/jquery.min.js"></script>#}
-
 			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
@@ -184,10 +179,6 @@
 			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
 			<script src="{% static 'assets/js/main.js' %}"></script>
 
-            <!-- mouse -->
-            <script src="{% static 'assets/js/mouse/jquery.easing.1.3.js' %}"></script>
-            <script src="{% static 'assets/js/mouse/main.js' %}"></script>
-            <script src="{% static 'assets/js/mouse/scrollify.min.js' %}"></script>
             <script>
                 var system = {
                     win: false,
@@ -213,20 +204,6 @@
                         document.getElementById('four').style.height = H + 'px';
                     });
                 }
-
-                $(function () {
-                    $.scrollify({
-                        section : "section",
-                        sectionName : "section-name",
-                        easing: "easeOutExpo",
-                        scrollSpeed: 1100,
-                        offset : 0,
-                        scrollbars: true,
-                        before:function() {},
-                        after:function() {}
-                    });
-                });
-
             </script>
 
 	</body>
