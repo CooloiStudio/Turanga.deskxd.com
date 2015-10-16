@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static from staticfiles %}
+	<head>
+		<title>Turanga</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/">Turanga</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Download</a></li>
+                            <li><a href="#">About</a></li>
+							<li><a href="#" class="button special">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>User Register</h2>
+						</header>
+
+						<!-- Content -->
+							<section>
+                                <form method="post" action="#">
+									<div class="register">
+                                        <input type="email" name="email" id="email" value="" placeholder="Email" />
+                                        </br>
+                                        <input type="text" name="name" id="name" value="" placeholder="Name" />
+                                        </br>
+                                        <input type="password" name="pwd" id="pwd" value="" placeholder="Password" />
+                                        </br>
+                                        <input type="password" name="apwd" id="apwd" value="" placeholder="Repeat Password" />
+                                        </br>
+                                        <input type="checkbox" id="copy" name="copy">
+                                        <label for="copy"><a href="#">我已仔细阅读并同意此协议</a></label>
+                                        </br>
+                                        <ul class="actions fit" style="text-align: center;">
+                                            <li><input type="submit" value="Rigister" class="button special fit" /></li>
+                                            <li><input type="reset" value="Reset" class="button fit" /></li>
+                                        </ul>
+									</div>
+								</form>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>&copy; DeskXD. All rights reserved.</li><li><a href="/thanks">Thanks!</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
