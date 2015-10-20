@@ -36,77 +36,43 @@
 						<!-- Content -->
 							<section>
                                 <div class="table-wrapper">
-                                    <h4>Default</h4>
-									<table>
-										<tbody>
-											<tr>
-												<td width="50%" align="right">
-                                                    <div class="2u 2u"><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex35ozxofrj301e01ejr5.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td width="50%" style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="right">
-                                                    <div class="6u 14u"><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex31a3j4tkj30ci046t8w.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex31a3j4tkj30ci046t8w.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex31a3j4tkj30ci046t8w.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex31a3j4tkj30ci046t8w.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-                                            <tr>
-												<td align="center">
-                                                    <div><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex31a3j4tkj30ci046t8w.jpg" alt="" style="vertical-align: middle;" /></span></a></div>
-                                                </td>
-												<td style="vertical-align: middle;"><a href="#">Dropbox</a></td>
-											</tr>
-										</tbody>
-									</table>
+                                    {% for p in group_list %}
+                                        <table style="margin-top: 50px;">
+                                            <thead>
+                                                <tr>
+                                                    <td align="center"><h3>{{ p.group }}</h3></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for t in p.thanks_list %}
+                                                    <tr>
+                                                        <td align="center">
+                                                            <div>
+                                                                <a href="{{ t.url }}" title="{{ t.name }}">
+                                                                    <span class="image fit">
+                                                                        {% if t.img != "none" %}
+                                                                            <img src="{{ t.img|safe }}" alt="" />
+                                                                        {% else %}
+                                                                            {{ t.name }}
+                                                                        {% endif %}
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    {% endfor %}
                                 </div>
                                 <div class="box alt">
+                                    <h3>特别鸣谢</h3>
 									<div class="row 50% uniform">
-										<div class="4u  6u(xsmall)"><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" /></span>Test</a></div>
-										<div class="4u  6u(xsmall)"><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" /></span>Test</a></div>
-                                        <div class="4u  6u(xsmall)"><a href="#"><span class="image fit"><img src="http://ww1.sinaimg.cn/large/006bwLnEgw1ex2tfgmmsqj30ci046mx2.jpg" alt="" /></span>Test</a></div>
+                                        {% for v in vthankss %}
+                                            <div class="4u  6u(xsmall)">
+                                                <a href="{{ v.url|safe }}" title="{{ v.name|safe }}"><span class="image fit"><img src="{{ v.img|safe }}" alt="" /></span></a>
+                                            </div>
+                                        {% endfor %}
 									</div>
 								</div>
 							</section>

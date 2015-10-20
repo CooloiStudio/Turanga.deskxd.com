@@ -186,6 +186,9 @@
 		#four-footer{
 			margin-bottom: 0px !important;
 		}
+		table {
+			width: 20% !important;
+		}
 
 	}
 
@@ -219,6 +222,9 @@
 		#four-footer{
 			margin-bottom: 0px !important;
 		}
+		table {
+			width: 25% !important;
+		}
 
 	}
 
@@ -246,11 +252,14 @@
 			width: 100% !important;
 		}
 
-		98#four-title{
+		#four-title{
 			margin-top: 0px !important;
 		}
 		#four-footer{
 			margin-bottom: 0px !important;
+		}
+		table {
+			width: 40% !important;
 		}
 
 	}
@@ -2411,8 +2420,6 @@
 			text-align: center;
 			margin: 0 auto;
 			margin-top: 80px;
-			width: 50%;
-			font-size: 0.8em !important;
 		}
 
 		.box.alt span{
@@ -2508,7 +2515,7 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			background-image: url("images/overlay.png");
+			/*background-image: url("images/overlay.png");*/
 			width: 100%;
 			height: 100%;
 			z-index: 1;
@@ -2683,13 +2690,12 @@
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
-		width: 30%;
 		margin: 0 auto;
 	}
 
 	table {
 		margin: 0 auto;
-		width: 100%;
+		width: 15%;
 	}
 
 		table tbody tr {
