@@ -8,7 +8,7 @@ class IndexViews(generic.View):
 
     def get(self, request):
 
-        groups = list(Group.objects.all())
+        groups = list(Group.objects.all().order_by('code'))
         if not groups:
             group_list = []
         else:
