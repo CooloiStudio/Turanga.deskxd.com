@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static from staticfiles %}
+	<head>
+		<title>Turanga</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+        <style>
+            .ds-sync{
+                display: none !important;
+            }
+        </style>
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/">Turanga</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Download</a></li>
+                            <li><a href="#">About</a></li>
+							<li><a href="#" class="button special">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Testing</h2>
+						</header>
+
+						<!-- Content -->
+							<section style="width: 920px !important; margin: 0 auto;">
+                                <div class="ds-thread" data-thread-key="2333" data-title="成都贤卓新信息技术有限公司" data-url="http://www.deskxd.com"></div>
+                                <script type="text/javascript">
+                                var duoshuoQuery = {short_name:"deskxd"};
+                                    (function() {
+                                        var ds = document.createElement('script');
+                                        ds.type = 'text/javascript';ds.async = true;
+                                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                                        ds.charset = 'UTF-8';
+                                        (document.getElementsByTagName('head')[0]
+                                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                                    })();
+                                </script>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>&copy; DeskXD. All rights reserved.</li><li><a href="/thanks">Thanks!</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
