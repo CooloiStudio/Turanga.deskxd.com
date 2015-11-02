@@ -49,3 +49,7 @@ class IndexViews(generic.View):
         return render(request,
                       self.templates_file,
                       context)
+
+
+def get_version(request):
+    
