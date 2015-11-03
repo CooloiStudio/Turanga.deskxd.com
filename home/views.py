@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views import generic
 from models import *
+from django.http import HttpResponseRedirect, HttpResponse
+
+import json
+import simplejson
 
 class IndexViews(generic.View):
     templates_file = 'Index.html'
@@ -49,7 +53,3 @@ class IndexViews(generic.View):
         return render(request,
                       self.templates_file,
                       context)
-
-
-def get_version(request):
-    
