@@ -60,6 +60,18 @@
 		margin: 0 auto;
 	}
 
+	.beta{
+		float: left;
+		width: 50%;
+		padding-top: 1%;
+		padding-bottom: 4% !important;
+	}
+	.beta1{
+		float: right;
+		width: 50%;
+	}
+
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -224,6 +236,17 @@
 		}
 		table {
 			width: 25% !important;
+		}
+
+		.beta{
+			float: none;
+			width: 100%;
+			margin: 0 auto;
+		}
+		.beta1{
+			float: none;
+			width: 100%;
+			margin:  0 auto;
 		}
 
 	}
