@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^thanks/', include('thanks.urls', namespace="thanks")),
     url(r'^about/', include('about.urls', namespace="about")),
     url(r'^register/', include('register.urls', namespace="register")),
-    url(r'^testing/', include('testing.urls', namespace="testing")),
+    url(r'^beta/', include('testing.urls', namespace="beta")),
 ]

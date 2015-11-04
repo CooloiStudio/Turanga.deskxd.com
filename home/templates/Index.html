@@ -22,7 +22,7 @@
                             <li><a href="/thanks">鸣谢</a></li>
 {#							<li><a href="#">下载</a></li>#}
 {#                          <li><a href="#">关于</a></li>#}
-							<li><a href="http://turanga.deskxd.com/testing/" class="button special">申请内测</a></li>
+							<li><a href="/beta" class="button special">申请内测</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -104,45 +104,30 @@
 				<section id="four" class="wrapper style1 special fade-up" data-section-name="fade-up">
 
                     <div class="container">
-                    {% if specials %}
-                        <header class="major" id="header-title">
-                            <h2>Accumsan sed tempus adipiscing blandit</h2>
-                        </header>
+{#                    {% if specials %}#}
+{#                        <header class="major" id="header-title">#}
+{#                            <h2>图兰卡内测进行中，诚邀您的参与！</h2>#}
+{#                        </header>#}
                         <div class="box alt">
                             <div class="row uniform">
-
-                                    {% for s in specials %}
-                                    <section class="4u 6u(medium) 12u$(xsmall)">
-                                        <img src="{{ s.img }}" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">
-                                        <h3>{{ s.name }}</h3>
-                                    </section>
-                                    {% endfor %}
-
-{#                                <section class="4u 6u$(medium) 12u$(xsmall)">#}
-{#                                    <img src="http://ww3.sinaimg.cn/large/006bwLnEgw1ewdlb4ztl0j30sg0sg4qp.jpg" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">#}
-{#                                    <h3>Eleifend lorem ornare</h3>#}
-{#                                </section>#}
-{#                                <section class="4u$ 6u(medium) 12u$(xsmall)">#}
-{#                                    <img src="http://ww3.sinaimg.cn/large/006bwLnEgw1ewdlb4ztl0j30sg0sg4qp.jpg" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">#}
-{#                                    <h3>Cubilia cep lobortis</h3>#}
-{#                                </section>#}
-{#                                <section class="4u 6u$(medium) 12u$(xsmall)">#}
-{#                                    <img src="http://ww3.sinaimg.cn/large/006bwLnEgw1ewdlb4ztl0j30sg0sg4qp.jpg" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">#}
-{#                                    <h3>Non semper interdum</h3>#}
-{#                                </section>#}
-{#                                <section class="4u 6u(medium) 12u$(xsmall)">#}
-{#                                    <img src="http://ww3.sinaimg.cn/large/006bwLnEgw1ewdlb4ztl0j30sg0sg4qp.jpg" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">#}
-{#                                    <h3>Odio laoreet accumsan</h3>#}
-{#                                </section>#}
-{#                                <section class="4u$ 6u$(medium) 12u$(xsmall)">#}
-{#                                    <img src="http://ww3.sinaimg.cn/large/006bwLnEgw1ewdlb4ztl0j30sg0sg4qp.jpg" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">#}
-{#                                    <h3>Massa arcu accumsan</h3>#}
-{#                                </section>#}
+                                <div style="float: left; width: 50%; padding-top: 1%; padding-bottom: 4%;">
+                                    <div class="8u  8u(xsmall)" style="margin: 0 auto;"><span class="image fit"><img src="http://ww3.sinaimg.cn/large/006bwLnEgw1ewdlb4ztl0j30sg0sg4qp.jpg" alt="" /></span></div>
+                                </div>
+                                <div style="float: right; width: 50%;">
+                                    <h2 style="padding-top: 10%;">图兰卡内测进行中</br>诚邀您的参与</h2>
+                                    <a href="/beta" class="button special fit" style="width: 350px; margin: 0 auto;">申请内测</a>
+                                </div>
+{#                                    {% for s in specials %}#}
+{#                                    <section class="4u 6u(medium) 12u$(xsmall)">#}
+{#                                        <img src="{{ s.img }}" style="border-radius: 50px; width: 100px; height: 100px; margin: 0 auto; margin-bottom: 5px;">#}
+{#                                        <h3>{{ s.name }}</h3>#}
+{#                                    </section>#}
+{#                                    {% endfor %}#}
                             </div>
                         </div>
-                    {% else %}
-                        <div style="font-size: 30px; width: 100%; text-align: center; padding-bottom: 240px; padding-top: 240px;"></div>
-                    {% endif %}
+{#                    {% else %}#}
+{#                        <div style="font-size: 30px; width: 100%; text-align: center; padding-bottom: 240px; padding-top: 240px;"></div>#}
+{#                    {% endif %}#}
                         <footer class="major">
                             <ul class="copyright">
                                 <li>&copy; <a href="http://www.deskxd.com">DeskXD.</a> All rights reserved.</li><li><a href="/thanks">Thanks!</a></li>
