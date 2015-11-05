@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static from staticfiles %}
+	<head>
+		<title>Turanga</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+        <style>
+            .ds-sync{
+                display: none !important;
+            }
+        </style>
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/">图兰卡</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/">首页</a></li>
+                            <li><a href="/thanks">鸣谢</a></li>
+{#							<li><a href="#">下载</a></li>#}
+{#                          <li><a href="#">关于</a></li>#}
+							<li><a href="/beta" class="button special">参与内测</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+                        <header class="major" style="margin-bottom: 20px;">
+							<h2>申请内测</h2>
+						</header>
+                        <section>
+                            {% if mobile_name == "android" %}
+                                <div class="6u 12u$(xsmall)" style="margin: 0 auto; margin-top: 8%;">
+                                    <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
+                                        <span class="image fit"><img src="{% static 'images/az.png' %}" alt="" /></span>
+                                    </div>
+{#                                    <a href="#" id="mobile1" class="button special fit" style="margin: 0 auto; width: 30%; margin-bottom: 10%; ">DOWNLOAD</a>#}
+                                    <h3 style="text-align: center; margin-top: 10px;">敬请期待。。。</h3>
+                                </div>
+                            {% elif mobile_name == "ios" %}
+                                <div class="8u$ 16u$(xsmall)" style="margin: 0 auto; margin-top: 5%;">
+                                    <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
+                                        <span class="image fit"><img src="{% static 'images/ios.png' %}" alt="" /></span>
+                                    </div>
+                                    <p style="text-align: center;">请 IOS 用户在下方提交您的 App Store 账户<br/>（该账户是一个电子邮箱地址；您平时需要通过该账户在App Store内下载软件）<br/>我们将在一个工作日内核实您的内测资格</p>
+
+                                    <form action="{% url 'beta:sendmessage' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="email" name="email" id="email" value="" placeholder="App Store 账户" style="margin: 0 auto; width: 50%; " /><br/>
+                                        <button type="submit" class="button special fit" id="mobile" style="margin: 0 auto; width: 25%; height: 50px; line-height: 50px; font-size: 18px; ">CONFIRM</button>
+                                    </form>
+                                    <p style="text-align: center;">温馨提示：请注意前往与您App Store账户关联的电子邮箱内查看内测邀请邮件<br/>有关邮件是您下载内测版“图兰卡”的重要凭证</p>
+                                </div>
+                            {% endif %}
+                        </section>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>&copy; <a href="http://www.deskxd.com">DeskXD.</a> All rights reserved.</li><li><a href="/thanks">Thanks!</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

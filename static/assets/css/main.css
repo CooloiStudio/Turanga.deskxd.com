@@ -71,6 +71,19 @@
 		width: 50%;
 	}
 
+	#mobile{
+		width: 25%;
+	}
+	#mobile1{
+		width: 30%;
+	}
+	#mobile2{
+		width: 50%;
+	}
+	#email{
+		width: 50%;
+	}
+
 
 /* Box Model */
 
@@ -201,6 +214,18 @@
 		table {
 			width: 20% !important;
 		}
+		#mobile{
+			width: 40% !important;
+		}
+		#mobile1{
+			width: 55% !important;
+		}
+		#mobile2{
+			width: 80% !important;
+		}
+		#email{
+			width: 80% !important;
+		}
 
 	}
 
@@ -247,6 +272,18 @@
 			float: none;
 			width: 100%;
 			margin:  0 auto;
+		}
+		#mobile{
+			width: 100% !important;
+		}
+		#mobile1{
+			width: 70% !important;
+		}
+		#mobile2{
+			width: 100% !important;
+		}
+		#email{
+			width: 100% !important;
 		}
 
 	}
