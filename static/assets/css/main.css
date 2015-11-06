@@ -83,6 +83,8 @@
 	#email{
 		width: 50%;
 	}
+	#iosscreen {
+	}
 
 
 /* Box Model */
@@ -283,6 +285,9 @@
 			width: 100% !important;
 		}
 		#email{
+			width: 100% !important;
+		}
+		#iosscreen {
 			width: 100% !important;
 		}
 
