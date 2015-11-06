@@ -38,22 +38,7 @@ class SuccessViews(generic.View):
                       context)
 
 
-class SuccessViews(generic.View):
-    templates_file = 'success.html'
-
-    def get(self, request):
-
-        error_num = request.GET['error']
-
-        context = {
-            "error_num": error_num,
-        }
-
-        return render(request,
-                      self.templates_file,
-                      context)
-
-class BetaViews(generic.View):
+class MobileViews(generic.View):
     templates_file = 'beta.html'
 
     def get(self, request):
