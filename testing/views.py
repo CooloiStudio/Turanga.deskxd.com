@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import generic
 from models import *
 from django.http import HttpResponse, HttpResponseRedirect
-from django.core.mail import send_mail, EmailMultiAlternatives, get_connection
+from django.core.mail import send_mail, EmailMessage
 
 
 from models import *
@@ -83,14 +83,14 @@ def sendmessage(request):
             p.save()
 
             # # send-email
-            # mail_list = ["784184594@qq.com", ]
-            # send_mail(
-            #     subject='新增用户邮箱',
-            #     message=p.email,
-            #     from_email='tumiaowenqing@live.cn',
-            #     recipient_list=mail_list,
-            #     fail_silently=False
-            # )
+            mail_list = ["turanga@deskxd.com", ]
+            send_mail(
+                subject='新增用户邮箱',
+                message=p.email,
+                from_email='deskxd@outlook.com',
+                recipient_list=mail_list,
+                fail_silently=True
+            )
 
     else:
         return HttpResponseRedirect('/beta/success?error=%d' % int(2))
