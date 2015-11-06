@@ -82,8 +82,9 @@ def sendmessage(request):
             )
             p.save()
 
-            # # send-email
+            # send-email
             mail_list = ["turanga@deskxd.com", ]
+            print 'in'
             send_mail(
                 subject='新增用户邮箱',
                 message=p.email,
@@ -91,6 +92,7 @@ def sendmessage(request):
                 recipient_list=mail_list,
                 fail_silently=True
             )
+            print 'out'
 
     else:
         return HttpResponseRedirect('/beta/success?error=%d' % int(2))
