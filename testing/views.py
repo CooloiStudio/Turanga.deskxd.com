@@ -38,15 +38,25 @@ class SuccessViews(generic.View):
                       context)
 
 
-class MobileViews(generic.View):
-    templates_file = 'beta.html'
+class IOSViews(generic.View):
+    templates_file = 'ios.html'
 
     def get(self, request):
 
-        mobile_name = request.GET['mobile']
+        context = {
+        }
+
+        return render(request,
+                      self.templates_file,
+                      context)
+
+
+class ANDROIDViews(generic.View):
+    templates_file = 'android.html'
+
+    def get(self, request):
 
         context = {
-            "mobile_name": mobile_name,
         }
 
         return render(request,

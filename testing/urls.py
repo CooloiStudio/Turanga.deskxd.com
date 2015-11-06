@@ -8,5 +8,7 @@ urlpatterns = [
 
     url(r'^sendmessage', views.sendmessage, name='sendmessage'),
 
-    url(r'^mobile', views.MobileViews.as_view(), name='mobile'),
+    url(r'^ios', views.IOSViews.as_view(), name='ios'),
+
+    url(r'^android', views.ANDROIDViews.as_view(), name='android'),
 ]

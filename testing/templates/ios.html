@@ -39,29 +39,19 @@
 							<h2>申请内测</h2>
 						</header>
                         <section>
-                            {% if mobile_name == "android" %}
-                                <div class="6u 12u$(xsmall)" style="margin: 0 auto; margin-top: 8%;">
-                                    <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
-                                        <span class="image fit"><img src="{% static 'images/az.png' %}" alt="" /></span>
-                                    </div>
-{#                                    <a href="#" id="mobile1" class="button special fit" style="margin: 0 auto; width: 30%; margin-bottom: 10%; ">DOWNLOAD</a>#}
-                                    <h3 style="text-align: center; margin-top: 10px;">敬请期待。。。</h3>
+                            <div class="8u$ 16u$(xsmall)" style="margin: 0 auto; margin-top: 5%;">
+                                <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
+                                    <span class="image fit"><img src="{% static 'images/ios.png' %}" alt="" /></span>
                                 </div>
-                            {% elif mobile_name == "ios" %}
-                                <div class="8u$ 16u$(xsmall)" style="margin: 0 auto; margin-top: 5%;">
-                                    <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
-                                        <span class="image fit"><img src="{% static 'images/ios.png' %}" alt="" /></span>
-                                    </div>
-                                    <p style="text-align: center;">请 IOS 用户在下方提交您的 App Store 账户<br/>（该账户是一个电子邮箱地址；您平时需要通过该账户在App Store内下载软件）<br/>我们将在一个工作日内核实您的内测资格</p>
+                                <p style="text-align: center;">请 IOS 用户在下方提交您的 App Store 账户<br/>（该账户是一个电子邮箱地址；您平时需要通过该账户在App Store内下载软件）<br/>我们将在一个工作日内核实您的内测资格</p>
 
-                                    <form action="{% url 'beta:sendmessage' %}" method="post">
-                                        {% csrf_token %}
-                                        <input type="email" name="email" id="email" value="" placeholder="App Store 账户" style="margin: 0 auto; width: 50%; " /><br/>
-                                        <button type="submit" class="button special fit" id="mobile" style="margin: 0 auto; width: 25%; height: 50px; line-height: 50px; font-size: 18px; ">CONFIRM</button>
-                                    </form>
-                                    <p style="text-align: center;">温馨提示：请注意前往与您App Store账户关联的电子邮箱内查看内测邀请邮件<br/>有关邮件是您下载内测版“图兰卡”的重要凭证</p>
-                                </div>
-                            {% endif %}
+                                <form action="{% url 'beta:sendmessage' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="email" name="email" id="email" value="" placeholder="App Store 账户" style="margin: 0 auto; width: 50%; " /><br/>
+                                    <button type="submit" class="button special fit" id="mobile" style="margin: 0 auto; width: 25%; height: 50px; line-height: 50px; font-size: 18px; ">CONFIRM</button>
+                                </form>
+                                <p style="text-align: center;">温馨提示：请注意前往与您App Store账户关联的电子邮箱内查看内测邀请邮件<br/>有关邮件是您下载内测版“图兰卡”的重要凭证</p>
+                            </div>
                         </section>
 					</div>
 				</div>
