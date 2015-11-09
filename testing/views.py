@@ -84,15 +84,16 @@ def sendmessage(request):
 
             # send-email
             mail_list = ["turanga@deskxd.com", ]
-            print 'in'
-            send_mail(
-                subject='新增用户邮箱',
-                message=p.email,
-                from_email='deskxd@outlook.com',
-                recipient_list=mail_list,
-                fail_silently=True
-            )
-            print 'out'
+            try:
+                send_mail(
+                    subject='新增用户邮箱',
+                    message=p.email,
+                    from_email='deskxd@outlook.com',
+                    recipient_list=mail_list,
+                    fail_silently=True
+                )
+            except Exception, e:
+                print str(e)
 
     else:
         return HttpResponseRedirect('/beta/success?error=%d' % int(2))
