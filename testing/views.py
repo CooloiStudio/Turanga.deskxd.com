@@ -4,7 +4,8 @@ from django.views import generic
 from models import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, EmailMessage
-
+import time
+import datetime
 
 from models import *
 import re
@@ -77,23 +78,27 @@ def sendmessage(request):
         if users:
             return HttpResponseRedirect('/beta/success?error=%d' % int(0))
         else:
+            pub_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             p = UserMessage(
-                email=email
+                email=email,
+                datatime=pub_date
             )
             p.save()
 
+            print datetime.datetime.now()
+
+            # mail_list = ["turanga@deskxd.com", ]
             # send-email
-            mail_list = ["turanga@deskxd.com", ]
-            try:
-                send_mail(
-                    subject='新增用户邮箱',
-                    message=p.email,
-                    from_email='deskxd@outlook.com',
-                    recipient_list=mail_list,
-                    fail_silently=True
-                )
-            except Exception, e:
-                print str(e)
+            # try:
+            #     send_mail(
+            #         subject='新增用户邮箱',
+            #         message=p.email,
+            #         from_email='deskxd@outlook.com',
+            #         recipient_list=mail_list,
+            #         fail_silently=True
+            #     )
+            # except Exception, e:
+            #     print str(e)
 
     else:
         return HttpResponseRedirect('/beta/success?error=%d' % int(2))

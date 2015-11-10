@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
             name='UserMessage',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=100)),
                 ('email', models.CharField(max_length=500)),
                 ('issend', models.BooleanField(default=False)),
+                ('datatime', models.DateTimeField()),
             ],
         ),
     ]
