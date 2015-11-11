@@ -43,8 +43,11 @@
                                 <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
                                     <span class="image fit"><img src="{% static 'images/az.png' %}" alt="" /></span>
                                 </div>
-{#                                    <a href="#" id="mobile1" class="button special fit" style="margin: 0 auto; width: 30%; margin-bottom: 10%; ">DOWNLOAD</a>#}
-                                <h3 style="text-align: center; margin-top: 10px;">敬请期待。。。</h3>
+                                {% if download_url != "" %}
+                                    <a href="{{ download_url }}" id="mobile1" class="button special fit" style="margin: 0 auto; width: 30%; margin-bottom: 10%; ">DOWNLOAD</a>
+                                {% else %}
+                                    <h3 style="text-align: center; margin-top: 10px;">敬请期待。。。</h3>
+                                {% endif %}
                             </div>
                         </section>
 					</div>

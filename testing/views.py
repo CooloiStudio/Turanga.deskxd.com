@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, EmailMessage
 import time
 import datetime
+import json
 
 from models import *
 import re
@@ -57,7 +58,14 @@ class ANDROIDViews(generic.View):
 
     def get(self, request):
 
+        f = file('home/json/android.json')
+        source = f.read()
+        target = json.JSONDecoder().decode(source)
+        download_url = target["url"]
+        print "url:" + download_url
+
         context = {
+            "download_url": download_url
         }
 
         return render(request,

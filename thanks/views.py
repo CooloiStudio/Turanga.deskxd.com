@@ -3,7 +3,7 @@ from django.views import generic
 from models import *
 from django.http import HttpResponse, HttpResponseRedirect
 
-import json
+import json, simplejson
 
 class IndexViews(generic.View):
     templates_file = 'thanksIndex.html'
@@ -45,5 +45,4 @@ def get_version(request):
     f = file('home/json/version.json')
     source = f.read()
     target = json.JSONDecoder().decode(source)
-    version = target["version"]
-    return HttpResponse(version)
+    return HttpResponse(json.dumps(target))
