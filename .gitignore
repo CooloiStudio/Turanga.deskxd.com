@@ -60,4 +60,4 @@ target/
 *.pac
 Turanga_deskxd_com/settings.py
 config/
-home/json/*
+static/json/*

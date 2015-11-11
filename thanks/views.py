@@ -42,7 +42,7 @@ class IndexViews(generic.View):
 
 
 def get_version(request):
-    f = file('home/json/version.json')
+    f = file('static/json/version.json')
     source = f.read()
     target = json.JSONDecoder().decode(source)
     return HttpResponse(json.dumps(target))

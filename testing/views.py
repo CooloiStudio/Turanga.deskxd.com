@@ -58,7 +58,7 @@ class ANDROIDViews(generic.View):
 
     def get(self, request):
 
-        f = file('home/json/android.json')
+        f = file('static/json/android.json')
         source = f.read()
         target = json.JSONDecoder().decode(source)
         download_url = target["url"]
