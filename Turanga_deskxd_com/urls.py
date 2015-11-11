@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^about/', include('about.urls', namespace="about")),
     url(r'^register/', include('register.urls', namespace="register")),
     url(r'^beta/', include('testing.urls', namespace="beta")),
+    url(r'^ueditor/',include('DjangoUeditor.urls')),
 ]

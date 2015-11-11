@@ -14,47 +14,31 @@
 	<body class="landing">
 		<div id="page-wrapper">
 			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="/">Turanga</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="/">Home</a></li>
+{#				<header id="header">#}
+{#					<h1 id="logo"><a href="/">Turanga</a></h1>#}
+{#					<nav id="nav">#}
+{#						<ul>#}
+{#							<li><a href="#">Home</a></li>#}
 {#							<li><a href="#">Download</a></li>#}
 {#                            <li><a href="#">About</a></li>#}
 {#							<li><a href="#" class="button special">Sign Up</a></li>#}
-						</ul>
-					</nav>
-				</header>
+{#						</ul>#}
+{#					</nav>#}
+{#				</header>#}
 
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>User Register</h2>
+							<h2>图兰卡用户协议</h2>
 						</header>
 
-						<!-- Content -->
-							<section>
-                                <form method="post" action="#">
-									<div class="register">
-                                        <input type="email" name="email" value="" placeholder="Email" />
-                                        </br>
-                                        <input type="text" name="name" id="name" value="" placeholder="Name" />
-                                        </br>
-                                        <input type="password" name="pwd" id="pwd" value="" placeholder="Password" />
-                                        </br>
-                                        <input type="password" name="apwd" id="apwd" value="" placeholder="Repeat Password" />
-                                        </br>
-                                        <input type="checkbox" id="copy" name="copy">
-                                        <label for="copy"><a href="/register/agreement">我已仔细阅读并同意此协议</a></label>
-                                        </br>
-                                        <ul class="actions fit" style="text-align: center;">
-                                            <li><input type="submit" value="Rigister" class="button special fit" /></li>
-                                            <li><input type="reset" value="Reset" class="button fit" /></li>
-                                        </ul>
-									</div>
-								</form>
-							</section>
+                    <!-- Content -->
+                        <section>
+                            {% if agrees != "" %}
+                                {{ agrees }}
+                            {% endif %}
+                        </section>
 
 					</div>
 				</div>
