@@ -16,7 +16,12 @@ class IndexViews(generic.View):
 
     def get(self, request):
 
+        f = file('static/json/version.json')
+        source = f.read()
+        target = json.JSONDecoder().decode(source)
+
         context = {
+            "version": target["version"]
         }
 
         return render(request,
