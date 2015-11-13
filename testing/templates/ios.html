@@ -44,6 +44,7 @@
                                     <span class="image fit"><img src="{% static 'images/ios.png' %}" alt="" /></span>
                                 </div>
                                 <p style="text-align: center; font-size: 0.8em;">请 IOS 用户在下方提交您的 App Store 账户<br/>（该账户是一个电子邮箱地址；您平时需要通过该账户在App Store内下载软件）<br/>我们将在一个工作日内核实您的内测资格</p>
+                                <p style="text-align: center; font-size: 0.8em; color: white;">兼容性：需要iOS 8.0或更高版本。与iPhone、iPad兼容。</p>
 
                                 <form action="{% url 'beta:sendmessage' %}" method="post">
                                     {% csrf_token %}

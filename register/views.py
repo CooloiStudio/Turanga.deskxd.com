@@ -23,7 +23,7 @@ class AgreeViews(generic.View):
 
         agreements = list(Agreement.objects.all())
         if agreements:
-            agrees = agreements.pop()
+            agrees = agreements.pop().content
         else:
             agrees = ""
 
