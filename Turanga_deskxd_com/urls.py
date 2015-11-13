@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^thanks/', include('thanks.urls', namespace="thanks")),
     url(r'^about/', include('about.urls', namespace="about")),
     # url(r'^register/', include('register.urls', namespace="register")),
-    # url(r'^beta/', include('testing.urls', namespace="beta")),
+    url(r'^beta/', include('testing.urls', namespace="beta")),
     # url(r'^ueditor/',include('DjangoUeditor.urls')),
 ]
