@@ -4,6 +4,7 @@ from models import *
 from django.http import HttpResponse, HttpResponseRedirect
 
 import json, simplejson
+import time
 
 class IndexViews(generic.View):
     templates_file = 'thanksIndex.html'
@@ -46,3 +47,7 @@ def get_version(request):
     source = f.read()
     target = json.JSONDecoder().decode(source)
     return HttpResponse(json.dumps(target))
+
+def get_time(request):
+    pubdate = time.strftime('%Y-%m-%d %H:%M:%s', time.localtime(time.time()))
+    return HttpResponse(pubdate)
