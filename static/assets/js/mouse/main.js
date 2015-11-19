@@ -24,4 +24,17 @@ if (system.win || system.mac || system.xll) {
 			$.scrollify("move", $(this).attr("href"));
 		});
 	});
+
+	$(window).resize(function () {
+		$(".panel").css({"height": $(window).height()});
+		$.scrollify({
+			section: ".panel"
+		});
+
+
+		$(".scroll").click(function (e) {
+			e.preventDefault();
+			$.scrollify("move", $(this).attr("href"));
+		});
+	});
 }
