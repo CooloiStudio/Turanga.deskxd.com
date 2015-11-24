@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^ios/$', views.IOSViews.as_view(), name='ios'),
 
     url(r'^android/$', views.ANDROIDViews.as_view(), name='android'),
+
+    url(r'^ad/$', views.ADViews.as_view(), name='ad'),
 ]

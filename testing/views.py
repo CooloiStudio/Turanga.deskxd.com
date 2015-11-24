@@ -67,7 +67,24 @@ class ANDROIDViews(generic.View):
         source = f.read()
         target = json.JSONDecoder().decode(source)
         download_url = target["url"]
-        print "url:" + download_url
+
+        context = {
+            "download_url": download_url
+        }
+
+        return render(request,
+                      self.templates_file,
+                      context)
+
+class ADViews(generic.View):
+    templates_file = 'ad.html'
+
+    def get(self, request):
+
+        f = file('static/json/android.json')
+        source = f.read()
+        target = json.JSONDecoder().decode(source)
+        download_url = target["url"]
 
         context = {
             "download_url": download_url
