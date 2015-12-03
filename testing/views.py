@@ -20,8 +20,11 @@ class IndexViews(generic.View):
         source = f.read()
         target = json.JSONDecoder().decode(source)
 
+        print target["version"]["android"]
+
         context = {
-            "version": target["version"]
+            "android_v": target["version"]["android"],
+            "ios_v": target["version"]["ios"]
         }
 
         return render(request,
