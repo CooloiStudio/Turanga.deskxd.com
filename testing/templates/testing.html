@@ -39,6 +39,8 @@
 							<h2>申请内测</h2>
 						</header>
                         <h3 style="text-align: center;">请选择您的设备</h3>
+                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 0px;">推荐平台：iOS 8.0 + 或 Android 4.0 +</p>
+                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 20px;">(平板电脑亦可参与体验)</p>
 						<!-- Content -->
 							<section>
                                 <div class="row">
@@ -46,18 +48,14 @@
                                         <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
                                             <span class="image fit"><img src="{% static 'images/ios.png' %}" alt="" /></span>
                                         </div>
-{#                                        <a class="version" style="text-align: center;">iOS</a>#}
                                         <div style="margin-top: 40px; margin-bottom: 40px;">
                                             <a href="/beta/ios" class="dbutton" style="margin: 0 auto; width: 50%; margin-bottom: 20px; margin-top: 20px; ">当前版本：{{ ios_v }}</a>
                                         </div>
-                                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 0px;">兼容系统：需要iOS 8.0或更高版本</p>
-                                        <p style="text-align: center; font-size: 0.8em; color: white;">兼容设备：与iPhone、iPad、iPod touch兼容</p>
                                     </div>
                                     <div class="6u 12u$(xsmall)" style="margin: 0 auto; text-align: center;">
                                         <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
                                             <span class="image fit"><img src="{% static 'images/az.png' %}" alt="" /></span>
                                         </div>
-{#                                        <a class="version" style="text-align: center;">Android</a>#}
                                         {% if download_url == "" %}
                                             敬请期待......
                                         {% else %}
@@ -65,8 +63,6 @@
                                             <a href="/beta/android" class="dbutton" style="margin: 0 auto; width: 50%; margin-bottom: 20px; margin-top: 20px; ">当前版本：{{ android_v }}</a>
                                         </div>
                                         {% endif %}
-                                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 0px;">兼容系统：需要Android 4.0或更高版本</p>
-                                        <p style="text-align: center; font-size: 0.8em; color: white;">兼容设备：与三星S3及相同性能或性能更高的安卓设备兼容</p>
                                     </div>
                                 </div>
 							</section>
