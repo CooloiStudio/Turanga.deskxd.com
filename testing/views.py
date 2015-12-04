@@ -16,13 +16,19 @@ class IndexViews(generic.View):
 
     def get(self, request):
 
-        f = file('static/json/version.json')
-        source = f.read()
-        target = json.JSONDecoder().decode(source)
+        f1 = file('static/json/version.json')
+        source1 = f1.read()
+        target1 = json.JSONDecoder().decode(source1)
+
+        f2 = file('static/json/android.json')
+        source2 = f2.read()
+        target2 = json.JSONDecoder().decode(source2)
+        download_url = target2["url"]
 
         context = {
-            "android_v": target["android"],
-            "ios_v": target["ios"]
+            "android_v": target1["android"],
+            "ios_v": target1["ios"],
+            "download_url": download_url
         }
 
         return render(request,
@@ -61,24 +67,6 @@ class IOSViews(generic.View):
 
 class ANDROIDViews(generic.View):
     templates_file = 'android.html'
-
-    def get(self, request):
-
-        f = file('static/json/android.json')
-        source = f.read()
-        target = json.JSONDecoder().decode(source)
-        download_url = target["url"]
-
-        context = {
-            "download_url": download_url
-        }
-
-        return render(request,
-                      self.templates_file,
-                      context)
-
-class ADViews(generic.View):
-    templates_file = 'ad.html'
 
     def get(self, request):
 

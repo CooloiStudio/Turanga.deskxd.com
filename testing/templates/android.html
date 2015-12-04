@@ -39,15 +39,9 @@
 							<h2>申请内测</h2>
 						</header>
                         <section>
-                            <div class="6u 12u$(xsmall)" style="margin: 0 auto; margin-top: 8%;">
-                                <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
-                                    <span class="image fit"><img src="{% static 'images/az.png' %}" alt="" /></span>
-                                </div>
-                                {% if download_url != "" %}
-                                    <a href="/beta/ad/" id="mobile1" class="button special fit" style="margin: 0 auto; width: 30%; margin-bottom: 10%; ">DOWNLOAD</a>
-                                {% else %}
-                                    <h3 style="text-align: center; margin-top: 10px;">敬请期待。。。</h3>
-                                {% endif %}
+                            <div class="6u 12u$(xsmall)" style="margin: 0 auto; margin-top: 15%;">
+                                <h3 style="text-align: center;">感谢您的参与！</h3>
+                                <h3 style="text-align: center; margin-bottom: 15%; font-size: 14px;">如果还没有开始下载，请点击<a href="{{ download_url }}" style="color: #e76278;">立即下载</a></h3>
                             </div>
                         </section>
 					</div>
@@ -58,12 +52,23 @@
 					<ul class="copyright">
 						<li>&copy; <a href="http://www.deskxd.com">DeskXD.</a> All rights reserved.</li><li><a href="/thanks">Thanks!</a></li>
 					</ul>
+                    <div style="display: none;"><span id="busuanzi_container_page_pv">此测试版游戏已下载<span id="busuanzi_value_page_pv"></span>次</span></div>
 				</footer>
 
 		</div>
 
 		<!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+            <script type="text/javascript">
+                $(function () {
+                    var downurl="/static/json/android.json";
+                    $.getJSON(downurl, function(data){
+                        download_url = data.url;
+                        window.open(download_url);
+                    });
+                });
+            </script>
+            <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
