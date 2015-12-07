@@ -12,5 +12,5 @@ urlpatterns = [
 
     url(r'^android/$', views.ANDROIDViews.as_view(), name='android'),
 
-    url(r'^downAD/$', views.downAD, name='downAD')
+    url(r'^download_AD/$', views.download_AD, name='download_AD')
 ]
