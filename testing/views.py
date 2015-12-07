@@ -128,11 +128,10 @@ def sendmessage(request):
     return HttpResponseRedirect('/beta/success?error=%d' % int(1))
 
 
-def download_AD(request):
-
-    f = file('static/json/android.json')
-    source = f.read()
-    target = json.JSONDecoder().decode(source)
-    download_url = target["url"]
-
-    return HttpResponse(download_url)
+# def download_AD(request):
+#
+#     f = file('static/json/android.json')
+#     source = f.read()
+#     target = json.JSONDecoder().decode(source)
+#
+#     return HttpResponse(target)
