@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, EmailMessage
 import time
 import datetime
-import json
+import json, simplejson
 
 from models import *
 import re
@@ -123,3 +123,14 @@ def sendmessage(request):
         return HttpResponseRedirect('/beta/success?error=%d' % int(2))
 
     return HttpResponseRedirect('/beta/success?error=%d' % int(1))
+
+
+def send_error(request):
+
+    objjson = request.POST["error_json"]
+
+    req = json.loads(objjson)
+
+    response = HttpResponse(json.dumps(req, indent=1, encoding='utf-8', ensure_ascii=False), content_type='text/json')
+    response['Content-Disposition'] = 'attachment; filename=%s.json' % "error"
+    return response
