@@ -135,4 +135,4 @@ def download_AD(request):
     target = json.JSONDecoder().decode(source)
     download_url = target["url"]
 
-    return HttpResponseRedirect(download_url)
+    return HttpResponse(download_url)
