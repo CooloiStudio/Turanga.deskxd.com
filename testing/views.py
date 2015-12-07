@@ -4,12 +4,15 @@ from django.views import generic
 from models import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, EmailMessage
+from django.views.decorators.csrf import csrf_exempt
+
+
 import time
 import datetime
 import json, simplejson
-
-from models import *
+import codecs
 import re
+
 
 class IndexViews(generic.View):
     templates_file = 'testing.html'
@@ -125,12 +128,11 @@ def sendmessage(request):
     return HttpResponseRedirect('/beta/success?error=%d' % int(1))
 
 
-def send_error(request):
+def download_AD(request):
 
-    objjson = request.POST["error_json"]
+    f = file('static/json/android.json')
+    source = f.read()
+    target = json.JSONDecoder().decode(source)
+    download_url = target["url"]
 
-    req = json.loads(objjson)
-
-    response = HttpResponse(json.dumps(req, indent=1, encoding='utf-8', ensure_ascii=False), content_type='text/json')
-    response['Content-Disposition'] = 'attachment; filename=%s.json' % "error"
-    return response
+    return HttpResponseRedirect(download_url)
