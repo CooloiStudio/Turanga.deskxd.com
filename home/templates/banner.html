@@ -1,0 +1,13 @@
+<!-- Banner -->
+<section id="banner" class="banner" data-section-name="banner">
+    {% if sectionheaders != "" %}
+    <div class="content">
+        <header>
+            <h2>{{ p.title|safe }}</h2>
+            <p>{{ p.subtitle|safe }}</p>
+        </header>
+        <span class="image"><img src="{{ p.img }}" alt="" /></span>
+    </div>
+    {% endif %}
+    <a href="#one" class="goto-next scrolly">Next</a>
+</section>

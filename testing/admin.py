@@ -4,4 +4,26 @@ from models import *
 class UserMessageAdmin(admin.ModelAdmin):
     list_display = ("email", )
 
+
+class PlatformAdmin(admin.ModelAdmin):
+    list_display = ("code", "version", )
+
+
+class VersionInfoInline(admin.StackedInline):
+    model = VersionInfo
+    extra = 3
+
+
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('get_platform', 'versions', )
+    inlines = [VersionInfoInline]
+
+    def get_platform(self, obj):
+        return obj.platform.code
+    get_platform.short_description = 'Platform'
+    get_platform.admin_order_field = 'platform__code'
+
+
 admin.site.register(UserMessage, UserMessageAdmin)
+admin.site.register(Platform, PlatformAdmin)
+admin.site.register(Versions, VersionAdmin)

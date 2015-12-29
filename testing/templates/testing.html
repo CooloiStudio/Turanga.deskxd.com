@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	{% load static from staticfiles %}
+    {% load i18n %}
 	<head>
 		<title>Turanga</title>
 		<meta charset="utf-8" />
@@ -18,16 +19,58 @@
 	</head>
 	<body class="landing">
 		<div id="page-wrapper">
+
+            <script>
+                function changelang(){
+                    myform = document.getElementById('langform');
+                    myform.submit();
+                }
+                function launch(object){
+                    var a = $(object).text();
+                    var count=$("#language option").length;
+                    for(var i=0;i<count;i++)
+                    {
+                        if($("#language").get(0).options[i].text == a)
+                        {
+                            $("#language").get(0).options[i].selected = true;
+                            break;
+                        }
+                    }
+                    changelang()
+                }
+            </script>
+            <form name="langform" action="/i18n/setlang/" id="langform" method="POST" style="margin-bottom: 0px; letter-spacing: 0.25em;">
+                {% csrf_token %}
+                <select id="language" name="language" onchange="changelang()" style="display: none;">
+                    <option value="" selected>{% trans lang %}</option>
+                    {% for lang in LANGUAGES %}
+                       <option value="{{ lang.0 }}" >{% trans lang.0 %}</option>
+                    {% endfor %}
+                </select>
+            </form>
+
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="/">图兰卡</a></h1>
+					<h1 id="logo"><a href="/">{% trans "图兰卡" %}</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="/">首页</a></li>
-                            <li><a href="/thanks">鸣谢</a></li>
-{#							<li><a href="#">下载</a></li>#}
-{#                          <li><a href="#">关于</a></li>#}
-							<li><a href="/beta" class="button special">参与内测</a></li>
+							{% for m in menu_list %}
+                                <li>
+                                    {% if m.id == 3 %}
+                                        <a href="{{ m.url }}">{{ m.name }}</a>
+                                        <ul>
+                                            {% for l in LANGUAGES %}
+                                                <li>
+                                                    <a onclick="launch(this)" {% if l.0 == lang %}style="color: #e97770; text-align: center;"{% else %}style="text-align: center;"{% endif %}>{% trans l.0 %}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <a href="{{ m.url }}">{{ m.name }}</a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+							<li><a href="/beta" class="button special">{% trans "参与内测" %}</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -36,34 +79,38 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major" style="margin-bottom: 20px;">
-							<h2>申请内测</h2>
+							<h2>{% trans '申请内测' %}</h2>
 						</header>
-                        <h3 style="text-align: center;">请选择您的设备</h3>
-                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 0px;">推荐平台：iOS 8.0 + 或 Android 4.0 +</p>
-                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 20px;">(平板电脑亦可参与体验)</p>
+                        <h3 style="text-align: center;">{% trans '请选择您的设备' %}</h3>
+                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 0px;">{% trans '推荐平台：iOS 8.0 + 或 Android 4.0 +' %}</p>
+                        <p style="text-align: center; font-size: 0.8em; color: white; margin-bottom: 20px;">({% trans '平板电脑亦可参与体验' %})</p>
 						<!-- Content -->
 							<section>
                                 <div class="row">
-                                    <div class="6u 12u$(xsmall)" style="margin: 0 auto; text-align: center;">
-                                        <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
-                                            <span class="image fit"><img src="{% static 'images/ios.png' %}" alt="" /></span>
-                                        </div>
-                                        <div style="margin-top: 40px; margin-bottom: 40px;">
-                                            <a href="/beta/ios" class="dbutton" style="margin: 0 auto; width: 50%; margin-bottom: 20px; margin-top: 20px; ">当前版本：{{ ios_v }}</a>
-                                        </div>
-                                    </div>
-                                    <div class="6u 12u$(xsmall)" style="margin: 0 auto; text-align: center;">
-                                        <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
-                                            <span class="image fit"><img src="{% static 'images/az.png' %}" alt="" /></span>
-                                        </div>
-                                        {% if download_url == "" %}
-                                            敬请期待......
-                                        {% else %}
-                                        <div style="margin-top: 40px; margin-bottom: 40px;">
-                                            <a href="/beta/android" class="dbutton" style="margin: 0 auto; width: 50%; margin-bottom: 20px; margin-top: 20px; ">当前版本：{{ android_v }}</a>
-                                        </div>
+                                    {% for p in platforms_list %}
+                                        <div class="6u 12u$(xsmall)" style="margin: 0 auto; text-align: center;">
+                                            <div class="2u  2u(xsmall)" style="margin: 0 auto; margin-bottom: 20px;">
+                                                <span class="image fit"><img src="{{ p.img }}" alt="" /></span>
+                                            </div>
+                                            <div style="margin-top: 40px; margin-bottom: 40px;">
+                                                <a href="{{ p.url }}" class="dbutton" style="margin: 0 auto; width: 50%; margin-bottom: 20px; margin-top: 20px; ">{% trans '当前版本' %}:{{ p.version }}</a>
+                                            </div>
+                                            <div id="vpc">
+                                                <p>{% trans '版本信息' %}</p>
+                                                {% for m in p.versioninfo %}
+                                                    <p style="margin-bottom: 0; color: #e76278; font-size: 20px;">{{ m.version }}</p>
+                                                    <pre>{{ m.info }}</pre>
+                                                {% endfor %}
+                                            </div>
+                                        {% if p.newversion %}
+                                            <div id="vmobile" style="text-align: center; width: 80%; margin: 0 auto;">
+                                                <p style="text-align: center;">{% trans '版本信息' %}</p>
+                                                <p style="margin-bottom: 0; color: #e76278; font-size: 20px;">{{ p.newversion.version }}</p>
+                                                <pre>{{ p.newversion.info }}</pre>
+                                            </div>
                                         {% endif %}
-                                    </div>
+                                        </div>
+                                    {% endfor %}
                                 </div>
 							</section>
 

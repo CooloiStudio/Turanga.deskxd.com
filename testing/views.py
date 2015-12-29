@@ -1,10 +1,12 @@
-#encoding=utf8
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views import generic
 from models import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, EmailMessage
 from django.views.decorators.csrf import csrf_exempt
+from home.models import Menu, MenuInfo, Languages
+from django.http import Http404
 
 
 import time
@@ -19,9 +21,63 @@ class IndexViews(generic.View):
 
     def get(self, request):
 
-        f1 = file('static/json/version.json')
-        source1 = f1.read()
-        target1 = json.JSONDecoder().decode(source1)
+        lang = request.LANGUAGE_CODE
+
+
+        languages = list(Languages.objects.all())
+        if not languages:
+            languages = []
+
+
+        dlangs = list(Languages.objects.filter(text=lang))
+        if dlangs:
+            dlang = dlangs.pop().id
+        else:
+            raise Http404
+
+
+        menus = list(Menu.objects.all().order_by('sort'))
+        if menus:
+            menu_list = []
+            for p in menus:
+                menuinfos = list(MenuInfo.objects.filter(language=dlang, menu=p.id))
+                if menuinfos:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                else:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                menu_list.append(a)
+        else:
+            menu_list = []
+
+
+        platforms = list(Platform.objects.all().order_by("sort"))
+
+        if platforms:
+            platforms_list = []
+            for p in platforms:
+                versions = list(Versions.objects.filter(platform=p.id))
+                if versions:
+                    version_list = []
+                    for q in versions:
+                        versioninfos = list(VersionInfo.objects.filter(vs=q.id, language=dlang))
+                        if versioninfos:
+                            a = {"version": q.versions, "info": versioninfos.pop().info}
+                        else:
+                            a = {"version": q.versions, "info": ""}
+                        version_list.append(a)
+                    def version(s):
+                        return s['version']
+                    versioninfo_list = sorted(version_list, key=version, reverse=True)
+                    print "v"
+                    print versioninfo_list[0]
+                    b = {"platform": p.code, 'img': p.img, 'url': p.url, 'version': p.version, "versioninfo": versioninfo_list, 'newversion': versioninfo_list[0]}
+                    print b
+                else:
+                    b = {"platform": p.code, 'img': p.img, 'url': p.url, 'version': p.version, "versioninfo": [], 'newversion': ""}
+                platforms_list.append(b)
+        else:
+            platforms_list = []
+
 
         f2 = file('static/json/android.json')
         source2 = f2.read()
@@ -29,9 +85,11 @@ class IndexViews(generic.View):
         download_url = target2["url"]
 
         context = {
-            "android_v": target1["android"],
-            "ios_v": target1["ios"],
-            "download_url": download_url
+            "download_url": download_url,
+            'languages': languages,
+            'lang': lang,
+            'menu_list': menu_list,
+            'platforms_list': platforms_list,
         }
 
         return render(request,
@@ -44,10 +102,44 @@ class SuccessViews(generic.View):
 
     def get(self, request):
 
-        error_num = request.GET['error']
+        lang = request.LANGUAGE_CODE
+
+
+        languages = list(Languages.objects.all())
+        if not languages:
+            languages = []
+
+
+        dlangs = list(Languages.objects.filter(text=lang))
+        if dlangs:
+            dlang = dlangs.pop().id
+        else:
+            raise Http404
+
+
+        menus = list(Menu.objects.all().order_by('sort'))
+        if menus:
+            menu_list = []
+            for p in menus:
+                menuinfos = list(MenuInfo.objects.filter(language=dlang, menu=p.id))
+                if menuinfos:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                else:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                menu_list.append(a)
+        else:
+            menu_list = []
+
+        if 'error' in request.GET and request.GET['error']:
+            error_num = request.GET['error']
+        else:
+            error_num = ""
 
         context = {
             "error_num": error_num,
+            'languages': languages,
+            'lang': lang,
+            'menu_list': menu_list,
         }
 
         return render(request,
@@ -60,7 +152,38 @@ class IOSViews(generic.View):
 
     def get(self, request):
 
+        lang = request.LANGUAGE_CODE
+
+
+        languages = list(Languages.objects.all())
+        if not languages:
+            languages = []
+
+
+        dlangs = list(Languages.objects.filter(text=lang))
+        if dlangs:
+            dlang = dlangs.pop().id
+        else:
+            raise Http404
+
+
+        menus = list(Menu.objects.all().order_by('sort'))
+        if menus:
+            menu_list = []
+            for p in menus:
+                menuinfos = list(MenuInfo.objects.filter(language=dlang, menu=p.id))
+                if menuinfos:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                else:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                menu_list.append(a)
+        else:
+            menu_list = []
+
         context = {
+            'languages': languages,
+            'lang': lang,
+            'menu_list': menu_list,
         }
 
         return render(request,
@@ -73,13 +196,44 @@ class ANDROIDViews(generic.View):
 
     def get(self, request):
 
+        lang = request.LANGUAGE_CODE
+
+
+        languages = list(Languages.objects.all())
+        if not languages:
+            languages = []
+
+
+        dlangs = list(Languages.objects.filter(text=lang))
+        if dlangs:
+            dlang = dlangs.pop().id
+        else:
+            raise Http404
+
+
+        menus = list(Menu.objects.all().order_by('sort'))
+        if menus:
+            menu_list = []
+            for p in menus:
+                menuinfos = list(MenuInfo.objects.filter(language=dlang, menu=p.id))
+                if menuinfos:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                else:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                menu_list.append(a)
+        else:
+            menu_list = []
+
         f = file('static/json/android.json')
         source = f.read()
         target = json.JSONDecoder().decode(source)
         download_url = target["url"]
 
         context = {
-            "download_url": download_url
+            "download_url": download_url,
+            'languages': languages,
+            'lang': lang,
+            'menu_list': menu_list,
         }
 
         return render(request,
@@ -106,21 +260,6 @@ def sendmessage(request):
                 datatime=pub_date
             )
             p.save()
-
-            print datetime.datetime.now()
-
-            # mail_list = ["turanga@deskxd.com", ]
-            # send-email
-            # try:
-            #     send_mail(
-            #         subject='新增用户邮箱',
-            #         message=p.email,
-            #         from_email='deskxd@outlook.com',
-            #         recipient_list=mail_list,
-            #         fail_silently=True
-            #     )
-            # except Exception, e:
-            #     print str(e)
 
     else:
         return HttpResponseRedirect('/beta/success?error=%d' % int(2))

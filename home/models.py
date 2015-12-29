@@ -1,32 +1,47 @@
 from django.db import models
 
-class Special(models.Model):
-    name = models.CharField(max_length=100)
-    img = models.CharField(max_length=500)
 
-class SectionHeader(models.Model):
-    gamename = models.CharField(max_length=100)
-    titleone = models.CharField(max_length=100)
-    titletwo = models.CharField(max_length=100)
-    img = models.CharField(max_length=500)
+class Languages(models.Model):
+    code = models.IntegerField(unique=True)
+    name = models.CharField(max_length=50)
+    text = models.CharField(max_length=100)
 
-class SectionOne(models.Model):
-    gamename = models.CharField(max_length=100)
-    gametitle = models.CharField(max_length=100)
-    textone = models.CharField(max_length=200)
-    texttwo = models.CharField(max_length=200)
-    img = models.CharField(max_length=500)
+    def __unicode__(self):
+        return self.name
 
-class SectionTwo(models.Model):
-    name = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
+
+class Menu(models.Model):
+    code = models.CharField(max_length=100)
+    sort = models.IntegerField(unique=True)
+    url = models.CharField(max_length=200)
+
+
+class MenuInfo(models.Model):
+    language = models.ForeignKey(Languages)
+    menu = models.ForeignKey(Menu)
+    name = models.CharField(max_length=200)
+
+
+class BasePage(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    remark = models.TextField(null=True)
+
+    def __unicode__(self):
+        return self.name + "[" + self.remark + "]"
+
+
+class Section(models.Model):
+    code = models.CharField(max_length=100)
+    sort = models.IntegerField(unique=True)
+    img = models.CharField(max_length=500)
+    url = models.CharField(max_length=100)
+    basepage = models.ForeignKey(BasePage)
+
+
+class SectionInfo(models.Model):
+    language = models.ForeignKey(Languages)
+    section = models.ForeignKey(Section)
+    title = models.CharField(max_length=200, null=True)
+    subtitle = models.CharField(max_length=200, null=True)
     text = models.TextField(null=True)
-    img = models.CharField(max_length=500)
-    url = models.CharField(max_length=500)
 
-class SectionThree(models.Model):
-    name = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
-    text = models.TextField(null=True)
-    img = models.CharField(max_length=500)
-    url = models.CharField(max_length=500)

@@ -1,23 +1,36 @@
 from django.contrib import admin
-from models import *
+from home.models import *
 
-class SpecialAdmin(admin.ModelAdmin):
-    list_display = ("name", "img", )
 
-class SectionHeaderAdmin(admin.ModelAdmin):
-    list_display = ("gamename", "titleone", "titletwo", "img", )
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'text', )
 
-class SectionOneAdmin(admin.ModelAdmin):
-    list_display = ("gamename", "gametitle", "textone", "texttwo", "img", )
 
-class SectionTwoAdmin(admin.ModelAdmin):
-    list_display = ("name", "title", "text", "img", "url", )
+class MenuInfoInline(admin.StackedInline):
+    model = MenuInfo
+    extra = 3
 
-class SectionThreeAdmin(admin.ModelAdmin):
-    list_display = ("name", "title", "text", "img", "url", )
 
-admin.site.register(Special, SpecialAdmin)
-admin.site.register(SectionHeader, SectionHeaderAdmin)
-admin.site.register(SectionOne, SectionOneAdmin)
-admin.site.register(SectionTwo, SectionTwoAdmin)
-admin.site.register(SectionThree, SectionThreeAdmin)
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('code', 'sort', 'url', )
+    inlines = [MenuInfoInline]
+
+
+class SectionInline(admin.StackedInline):
+    model = SectionInfo
+    extra = 3
+
+
+class SectionAdmin(admin.ModelAdmin):
+    list_display = ('code', 'sort', 'basepage', )
+    inlines = [SectionInline]
+
+
+class BasePageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'remark', )
+
+
+admin.site.register(BasePage, BasePageAdmin)
+admin.site.register(Languages, LanguageAdmin)
+admin.site.register(Menu, MenuAdmin)
+admin.site.register(Section, SectionAdmin)

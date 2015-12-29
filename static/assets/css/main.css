@@ -108,6 +108,15 @@
 		background: #e76278;
 	}
 
+	#vpc{
+		display: block;
+		text-align: center;
+		width: 80%;
+		margin: 0 auto;
+	}
+	#vmobile{
+		display: none;
+	}
 
 /* Box Model */
 
@@ -312,6 +321,15 @@
 		#iosscreen {
 			width: 100% !important;
 		}
+		#vpc{
+			display: none;
+		}
+		#vmobile{
+			display: block;
+			text-align: center;
+			width: 80%;
+			margin: 0 auto;
+		}
 
 	}
 
@@ -347,6 +365,15 @@
 		}
 		table {
 			width: 40% !important;
+		}
+		#vpc{
+			display: none;
+		}
+		#vmobile{
+			display: block;
+			text-align: center;
+			width: 80%;
+			margin: 0 auto;
 		}
 
 	}

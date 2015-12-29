@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views import generic
-from models import *
+from home.models import *
 from django.http import HttpResponseRedirect, HttpResponse
+from django.http import Http404
+from django.template import RequestContext
 
 import json
 import simplejson
@@ -11,45 +13,59 @@ class IndexViews(generic.View):
 
     def get(self, request):
 
-        speciallist = list(Special.objects.all())
-        if speciallist:
-            specials = speciallist
-        else:
-            specials = []
+        lang = request.LANGUAGE_CODE
 
-        headerlist = list(SectionHeader.objects.all())
-        if headerlist:
-            sectionheaders = headerlist.pop()
-        else:
-            sectionheaders = []
 
-        onelist = list(SectionOne.objects.all())
-        if onelist:
-            sectionones = onelist.pop()
-        else:
-            sectionones = []
+        languages = list(Languages.objects.all())
+        if not languages:
+            languages = []
 
-        twolist = list(SectionTwo.objects.all())
-        if twolist:
-            sectiontwos = twolist.pop()
-        else:
-            sectiontwos = []
 
-        threelist = list(SectionThree.objects.all())
-        if threelist:
-            sectionthrees = threelist.pop()
+        dlangs = list(Languages.objects.filter(text=lang))
+        if dlangs:
+            dlang = dlangs.pop().id
         else:
-            sectionthrees = []
+            raise Http404
+
+
+        menus = list(Menu.objects.all().order_by('sort'))
+        if menus:
+            menu_list = []
+            for p in menus:
+                menuinfos = list(MenuInfo.objects.filter(language=dlang, menu=p.id))
+                if menuinfos:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                else:
+                    a = {"id": p.id, "url": p.url, "name": menuinfos.pop().name}
+                menu_list.append(a)
+        else:
+            menu_list = []
+
+
+        sections = list(Section.objects.all().order_by('sort'))
+        if sections:
+            section_list = []
+            for p in sections:
+                sectioninfos = list(SectionInfo.objects.filter(language=dlang, section=p.id))
+                if sectioninfos:
+                    for q in sectioninfos:
+                        a = {"basepage": p.basepage.name, "img": p.img, "url": p.url, "title": q.title, "subtitle": q.subtitle, 'text': q.text}
+                        section_list.append(a)
+                else:
+                    a = {"basepage": p.basepage.name, "img": p.img, "url": p.url, "title": "", "subtitle": "", "text": ""}
+                    section_list.append(a)
+        else:
+            section_list = []
 
 
         context = {
-            "specials": specials,
-            "sectionheaders": sectionheaders,
-            "sectionones": sectionones,
-            "sectiontwos": sectiontwos,
-            "sectionthrees": sectionthrees,
+            'languages': languages,
+            'lang': lang,
+            'menu_list': menu_list,
+            'section_list': section_list
         }
 
-        return render(request,
-                      self.templates_file,
-                      context)
+        return render_to_response(
+                self.templates_file,
+                context,
+                context_instance=RequestContext(request))
