@@ -5,6 +5,9 @@ class Group(models.Model):
     code = models.CharField(max_length=200)
     sort = models.IntegerField(unique=True)
 
+    def __unicode__(self):
+        return self.code
+
 class GroupInfo(models.Model):
     language = models.ForeignKey(Languages)
     group = models.ForeignKey(Group)
