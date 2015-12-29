@@ -44,12 +44,15 @@ class IndexViews(generic.View):
 
 
         groups = list(Group.objects.all().order_by('code'))
-        if not groups:
-            group_list = []
-        else:
+        if groups:
             group_list = []
             for g in groups:
-                thanks = list(Thanks.objects.filter(group=g))
+                ginfos = list(GroupInfo.objects.filter(language=dlang, group=g.id))
+                if ginfos:
+                    groupname = ginfos.pop().name
+                else:
+                    groupname = ""
+                thanks = list(Thanks.objects.filter(group=g.id))
                 if thanks:
                     thanks_list = []
                     for t in thanks:
@@ -57,8 +60,10 @@ class IndexViews(generic.View):
                         thanks_list.append(b)
                 else:
                     thanks_list = []
-                a = {'group': g.name, 'thanks_list': thanks_list}
+                a = {'group': groupname, 'thanks_list': thanks_list}
                 group_list.append(a)
+        else:
+            group_list = []
 
         vthankss = list(VThanks.objects.all())
         if not vthankss:

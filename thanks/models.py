@@ -1,11 +1,15 @@
 from django.db import models
+from home.models import Languages
 
 class Group(models.Model):
-    code = models.IntegerField(unique=True)
-    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=200)
+    sort = models.IntegerField(unique=True)
 
-    def __unicode__(self):
-        return self.name
+class GroupInfo(models.Model):
+    language = models.ForeignKey(Languages)
+    group = models.ForeignKey(Group)
+    name = models.CharField(max_length=200)
+
 
 class Thanks(models.Model):
     group = models.ForeignKey(Group)
