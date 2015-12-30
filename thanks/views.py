@@ -43,7 +43,7 @@ class IndexViews(generic.View):
             menu_list = []
 
 
-        groups = list(Group.objects.all().order_by('code'))
+        groups = list(Group.objects.all().order_by('sort'))
         if groups:
             group_list = []
             for g in groups:
