@@ -49,10 +49,10 @@ class IndexViews(generic.View):
                 sectioninfos = list(SectionInfo.objects.filter(language=dlang, section=p.id))
                 if sectioninfos:
                     for q in sectioninfos:
-                        a = {"basepage": p.basepage.name, "img": p.img, "url": p.url, "title": q.title, "subtitle": q.subtitle, 'text': q.text}
+                        a = {"basepage": p.basepage.name, "img": p.img, "url": p.url, "title": q.title, "subtitle": q.subtitle, 'text': q.text, 'subtext': q.subtext}
                         section_list.append(a)
                 else:
-                    a = {"basepage": p.basepage.name, "img": p.img, "url": p.url, "title": "", "subtitle": "", "text": ""}
+                    a = {"basepage": p.basepage.name, "img": p.img, "url": p.url, "title": "", "subtitle": "", "text": "", 'subtext': ""}
                     section_list.append(a)
         else:
             section_list = []

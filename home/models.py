@@ -44,4 +44,5 @@ class SectionInfo(models.Model):
     title = models.CharField(max_length=200, null=True)
     subtitle = models.CharField(max_length=200, null=True)
     text = models.TextField(null=True)
+    subtext = models.TextField(null=True)
 
