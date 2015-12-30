@@ -55,37 +55,33 @@ class IndexViews(generic.View):
         if platforms:
             platforms_list = []
             for p in platforms:
+                aversions = list(AvailableVersion.objects.filter(platform=p.id))
+                if aversions:
+                    lastversion = aversions.pop().availableversion.versions
+                else:
+                    lastversion = ""
                 versions = list(Versions.objects.filter(platform=p.id))
                 if versions:
                     version_list = []
                     for q in versions:
-                        versioninfos = list(VersionInfo.objects.filter(vs=q.id, language=dlang))
-                        if versioninfos:
-                            a = {"version": q.versions, "info": versioninfos.pop().info}
-                        else:
-                            a = {"version": q.versions, "info": ""}
-                        version_list.append(a)
+                        if q.display:
+                            versioninfos = list(VersionInfo.objects.filter(vs=q.id, language=dlang))
+                            if versioninfos:
+                                a = {"version": q.versions, "info": versioninfos.pop().info}
+                            else:
+                                a = {"version": q.versions, "info": ""}
+                            version_list.append(a)
                     def version(s):
                         return s['version']
                     versioninfo_list = sorted(version_list, key=version, reverse=True)
-                    print "v"
-                    print versioninfo_list[0]
-                    b = {"platform": p.code, 'img': p.img, 'url': p.url, 'version': p.version, "versioninfo": versioninfo_list, 'newversion': versioninfo_list[0]}
-                    print b
+                    b = {"platform": p.code, 'img': p.img, 'url': p.url, 'version': lastversion, "versioninfo": versioninfo_list, 'newversion': versioninfo_list[0]}
                 else:
-                    b = {"platform": p.code, 'img': p.img, 'url': p.url, 'version': p.version, "versioninfo": [], 'newversion': ""}
+                    b = {"platform": p.code, 'img': p.img, 'url': p.url, 'version': lastversion, "versioninfo": [], 'newversion': ""}
                 platforms_list.append(b)
         else:
             platforms_list = []
 
-
-        f2 = file('static/json/android.json')
-        source2 = f2.read()
-        target2 = json.JSONDecoder().decode(source2)
-        download_url = target2["url"]
-
         context = {
-            "download_url": download_url,
             'languages': languages,
             'lang': lang,
             'menu_list': menu_list,
@@ -224,10 +220,22 @@ class ANDROIDViews(generic.View):
         else:
             menu_list = []
 
-        f = file('static/json/android.json')
-        source = f.read()
-        target = json.JSONDecoder().decode(source)
-        download_url = target["url"]
+
+        lastversion = list(AvailableVersion.objects.filter(platform=1))
+        if lastversion:
+            vs = lastversion.pop().availableversion.versions
+            down = list(Versions.objects.filter(platform=1, versions=vs))
+            if down:
+                download = down.pop().download
+                if re.match(r'[a-zA-z]+://[^\s]*', download):
+                    download_url = download
+                else:
+                    download_url = ""
+            else:
+                download_url = ""
+        else:
+            download_url = ""
+
 
         context = {
             "download_url": download_url,
@@ -267,10 +275,43 @@ def sendmessage(request):
     return HttpResponseRedirect('/beta/success?error=%d' % int(1))
 
 
-# def download_AD(request):
-#
-#     f = file('static/json/android.json')
-#     source = f.read()
-#     target = json.JSONDecoder().decode(source)
-#
-#     return HttpResponse(target)
+def download_AD(request):
+
+    lastversion = list(AvailableVersion.objects.filter(platform=1))
+    if lastversion:
+        vs = lastversion.pop().availableversion.versions
+        down = list(Versions.objects.filter(platform=1, versions=vs))
+        if down:
+            download = down.pop().download
+            if re.match(r'[a-zA-z]+://[^\s]*', download):
+                download_url = download
+            else:
+                download_url = ""
+        else:
+            download_url = ""
+    else:
+        download_url = ""
+
+    target = json.dumps({"url": download_url})
+
+    return HttpResponse(target)
+
+
+def get_version(request):
+
+    versions = list(AvailableVersion.objects.all())
+    if versions:
+        version_data = {}
+        for p in versions:
+            version_data[p.platform.code] = p.availableversion.versions
+    else:
+        version_data = ""
+
+    lastversion = json.dumps(version_data)
+
+    return HttpResponse(lastversion)
+
+
+def get_time(request):
+    pubdate = time.strftime('%Y-%m-%d %H:%M:%s', time.localtime(time.time()))
+    return HttpResponse(pubdate)

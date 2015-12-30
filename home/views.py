@@ -7,6 +7,7 @@ from django.template import RequestContext
 
 import json
 import simplejson
+import time
 
 class IndexViews(generic.View):
     templates_file = 'Index.html'

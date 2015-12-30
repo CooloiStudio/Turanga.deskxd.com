@@ -98,12 +98,25 @@
                                             <div id="vpc">
                                                 <p>{% trans '版本信息' %}</p>
                                                 {% for m in p.versioninfo %}
-                                                    <p style="margin-bottom: 0; color: #e76278; font-size: 20px;">{{ m.version }}</p>
-                                                    <pre>{{ m.info }}</pre>
+                                                    {% if m.version == p.newversion.version %}
+                                                        <div style="clear: both;">
+                                                            <div class="vtitle">{{ m.version }}</div>
+                                                            <div class="first-body">
+                                                                <pre style="margin-bottom: 0px;">{{ m.info }}</pre>
+                                                            </div>
+                                                        </div>
+                                                    {% else %}
+                                                        <div style="clear: both;">
+                                                            <div class="vtitle">{{ m.version }}</div>
+                                                            <div class="important-body">
+                                                                <pre style="margin-bottom: 0px;">{{ m.info }}</pre>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
                                                 {% endfor %}
                                             </div>
                                         {% if p.newversion %}
-                                            <div id="vmobile" style="text-align: center; width: 80%; margin: 0 auto;">
+                                            <div id="vmobile">
                                                 <p style="text-align: center;">{% trans '版本信息' %}</p>
                                                 <p style="margin-bottom: 0; color: #e76278; font-size: 20px;">{{ p.newversion.version }}</p>
                                                 <pre>{{ p.newversion.info }}</pre>

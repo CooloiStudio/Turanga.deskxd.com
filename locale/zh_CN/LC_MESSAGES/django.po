@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 07:46+0000\n"
+"POT-Creation-Date: 2015-12-30 08:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,6 +113,10 @@ msgstr "当前版本"
 #: testing/templates/testing.html:99 testing/templates/testing.html.py:107
 msgid "版本信息"
 msgstr "版本信息"
+
+#: thanks/templates/thanksIndex.html:113
+msgid "特别感谢"
+msgstr "特别感谢"
 
 msgid "en-us"
 msgstr "English"

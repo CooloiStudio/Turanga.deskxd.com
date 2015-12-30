@@ -80,14 +80,3 @@ class IndexViews(generic.View):
         return render(request,
                       self.templates_file,
                       context)
-
-
-# def get_version(request):
-#     f = file('static/json/version.json')
-#     source = f.read()
-#     target = json.JSONDecoder().decode(source)
-#     return HttpResponse(json.dumps(target))
-
-def get_time(request):
-    pubdate = time.strftime('%Y-%m-%d %H:%M:%s', time.localtime(time.time()))
-    return HttpResponse(pubdate)
